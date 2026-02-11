@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --text: #042d62;
+  --label: #042d62;
+  --flap: #444693;
+  --paper: #fffefc;
+  --envelope: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  background-image: url("Untitled design.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+}
+
+.carousel {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 120px 0 160px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 140px;
+}
+
+.carousel-spacer {
+  flex: 0 0 calc(50vw + 160px);
+}
+
+.envelope-wrapper {
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  transform: scale(0.75);
+  opacity: 0.5;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  will-change: transform;
+}
+
+.envelope {
+  width: 320px;
+  height: 210px;
+  position: relative;
+  cursor: pointer;
+  overflow: visible;
+  filter: drop-shadow(0 22px 34px rgba(0,0,0,0.12));
+}
+
+.body {
+  position: absolute;
+  inset: 0;
+  background: var(--envelope);
+  border-radius: 26px;
+  z-index: 1;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 105px solid var(--flap);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+  z-index: 2;
+}
+
+.letter {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  width: 272px;
+
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 22px 20px;
+
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--text);
+
+  max-height: 240px;
+  overflow-y: auto;
+
+  box-shadow: 0 14px 32px rgba(0,0,0,0.14);
+
+  transform: translateY(-60px); 
+  opacity: 0;
+
+  transition:
+    transform 0.6s cubic-bezier(.4,0,.2,1),
+    opacity 0.6s;
+
+  z-index: 4;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  transform: translateY(60px); 
+  opacity: 1;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--label);
+  text-align: center;
+}
+
+.footer {
+  margin-top: 120px;
+  text-align: center;
+  font-size: 14px;
+  color: #042d62;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+  <div class="container">
+
+    <div class="carousel">
+      <div class="carousel-track">
+
+        <div class="carousel-spacer"></div>
+
+        <div class="envelope-wrapper">
+          <div class="envelope" onclick="toggle(this)">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="letter">
+              ab kya hi bolna bacha hai, you know about my uncle's hernia. <br> <br>
+              we have been together too long, past the expectations of 17 year old ved and keya atleast. <br>
+              (3/4 years ago keya would be squealing if she knew she ends up w you) <br><br>
+              i love you so much, cutu. you are my (second) favorite person. <br>
+              you make long distance easy. you make long distance hard (cause why you so pretty and so far?) <br> <br>
+              and also, i love you (did i say that already?) <br>
+            </div>
+          </div>
+          <div class="label">open on dory-keys day</div>
+        </div>
+
+        <div class="envelope-wrapper">
+          <div class="envelope" onclick="toggle(this)">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="letter">
+              1. i am literally coming in two weeks, tf you mean? <br> <br>
+
+              2. vaise bhi tu mujhe call nahi karta, kya faayda miss karneka <br>
+              chala jaa gym do ghanta sab theek ho jaayega meri yaad nahi aayegi <br> <br>
+
+              3. lowkenuinely, major aura loss. where that nonchalance at? <br> <br>
+
+              4. ye relationship mein ek hi rotdu ho sakta hai aur vo mein hoon. <br> <br>
+
+              5. i miss you so much more dory. reh lu kya tere wardrobe mein? <br>
+              you are going to get water-boarded with kisses soon. (would that be called kiss-boarded?)<br>
+            </div>
+          </div>
+          <div class="label">open when you miss me</div>
+        </div>
+
+        <div class="envelope-wrapper">
+          <div class="envelope" onclick="toggle(this)">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="letter">
+             pakka tune hi kuch kiya hoga, theeke lekin <br><br>
+             i mean you have a very high tolerance to my bs so im just gonna assume that its probably serious. <br><br>
+             soooooooo<br><br>
+             im sorry. i act before thinking. my calculating brain probably made an assumption and decided to stick to it. <br><br>
+             ok cool. now call me. <br>
+            </div>
+          </div>
+          <div class="label">open when you are mad at me</div>
+        </div>
+
+        <div class="envelope-wrapper">
+          <div class="envelope" onclick="toggle(this)">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="letter">
+              you so goated twin. <br><br>
+              why you stressed when you know you ending up with a MINIMUM six figure job? <br>
+              i liked you cause you were smarter and more ambitious than me. that's j who u are lil bro. <br>
+              get good. have faith in yourself. <br><br>
+              id pay to watch you wash dishes. all im saying. <br>
+            </div>
+          </div>
+          <div class="label">open when you are stressed</div>
+        </div>
+
+        <div class="envelope-wrapper">
+          <div class="envelope" onclick="toggle(this)">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="letter">
+              i could not debug this. life is sad.<br><br>
+            </div>
+          </div>
+          <div class="label">cooked</div>
+        </div>
+
+        <div class="carousel-spacer"></div>
+
+      </div>
+    </div>
+
+    <div class="footer">made by keys</div>
+
+  </div>
+</div>
+
+<script>
+function toggle(el) {
+  el.classList.toggle("open");
+}
+
+const wrappers = document.querySelectorAll(".envelope-wrapper");
+const carousel = document.querySelector(".carousel");
+
+function updateScale() {
+  const center = window.innerWidth / 2;
+  let closestDistance = Infinity;
+  let closestWrapper = null;
+
+  wrappers.forEach(wrapper => {
+    const rect = wrapper.getBoundingClientRect();
+    const wrapperCenter = rect.left + rect.width / 2;
+    const distance = Math.abs(center - wrapperCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestWrapper = wrapper;
+    }
+  });
+
+  wrappers.forEach(wrapper => {
+    if (wrapper === closestWrapper) {
+      wrapper.style.transform = "scale(1.5)";
+      wrapper.style.opacity = "1";
+    } else {
+      wrapper.style.transform = "scale(0.75)";
+      wrapper.style.opacity = "0.5";
+    }
+  });
+}
+
+carousel.addEventListener("scroll", updateScale);
+window.addEventListener("load", updateScale);
+</script>
+</body>
+</html>
